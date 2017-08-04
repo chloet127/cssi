@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Forms are Fun</title>
+  </head>
+    <body>
+      <!-- <h1>Adventures at CSSI</h1>
+      <form method="post" action ="">
+        <label for='noun1'>Enter a name</label>
+        <input type="text" name="noun1"/>
+
+        <h3>Enter an activity: <input type="text" name="activity"/></h3>
+
+        <h3>Choose one: </h3>
+        <label for = 'teacher'>
+        <input type="radio" name="teacher" value="Matthew">Matthew</label><br>
+        <input type="radio" name="teacher" value="Victoria">Victoria
+
+        <h3>Enter a Celebrity's Name:<input type="text" name="celebrity"/></h3>
+        <h3>Enter a TV Show:<input type="text" name="show"/></h3>
+
+        <h3><input type="checkbox" name="fun" value="FUNNNN!!!!!!!!!!!">
+        Check here if you are having fun at CSSI<br>
+
+        <p><input type="submit" value="Submit"></p>
+      </form> -->
+
+      <!-- <form method = 'post' action = ''>
+          <label for='person'> Enter a name </label>
+          <input type = 'text' name = 'person'/>
+
+          <label for='adj1'>Enter two adjectives </label>
+          <input type = 'text' name = 'adj1'/>
+          <input type = 'text' name = 'adj2'/>
+
+          <label for='noun2'> Enter a noun </label>
+          <input type = 'text' name = 'noun2'/>
+
+          <h3> Choose a color: </h3>
+          <label for = 'color'>
+          <input type="radio" name="color" value="teal">Teal</label><br>
+          <input type="radio" name="color" value="fuschia">Fuschia<br>
+          <input type="radio" name="color" value="orange">Orange
+
+
+
+      </form> -->
+
+    <form>
+      <label for='long'>Longitude</label>
+      <input type="text" name="long"/>
+      <label for='lat'>Latitude</label>
+      <input type="text" name="lat"/>
+
+      <p><input type="submit" value="Submit"></p>
+    </form>
+
+     <style>
+         #map {
+          height: 400px;
+          width: 100%;
+         }
+      </style>
+
+      <div id="map"></div>
+      <button onclick='getPosition()'>Get Position</button>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+      <script>
+
+      var map, marker;
+      function initMap() {
+        var myLatLng = {lat: -25.363, lng: 131.044};
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: myLatLng
+        });
+
+        marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          draggable:true,
+          title:"Drag me!"
+        });
+
+      }
+
+      function getPosition() {
+        var p = {lat: marker.position.lat(), lng: marker.position.lng()}
+        s = JSON.stringify(p);
+        $.post('/postpos', s)
+      }
+
+
+
+
+
+      </script>
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2u0t6H8Apw-ybOkRaWcK5VmPEg7mAfPA&callback=initMap">
+      </script>
+
+
+
+    </body>
+  </html>

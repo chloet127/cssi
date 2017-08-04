@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel = 'stylesheet' href = '/res/styles.css'>
+    <title>Seat Roulette</title>
+  </head>
+  <body>
+    <h1> Seat Roulette </h1>
+
+
+    <!-- {% for table in tables %}
+    <div>
+      {%for person in table %}
+        {{ person }},
+      {% endfor %}
+    </div>
+    {% endfor %} -->
+
+
+
+    {% for table in tables %}
+    <div id='{{table.id}}' class = 'card'>
+      <h2>{{table.id}}</h2>
+    {% for person in table.students %}
+      {{person}},
+    {% endfor %}
+  </div>
+  {% endfor %}
+
+  </body>
+</html>

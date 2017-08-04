@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+  <!-- <p>Once upon a time {{ noun1 }} wanted to learn to
+  {{ activity }} at Google. So {{ noun1 }}
+  flew to Google and met {{ teacher }}.
+  To {{ noun1 }} 's surprise {{ celebrity }}
+  was also in the class!  Together {{ noun1 }} and
+  {{ celebrity }} decided to work on a project about
+  {{ show }}.  {{ noun1 }} had so much
+  {{ fun }}</p> -->
+
+
+  <style>
+     #map {
+      height: 400px;
+      width: 100%;
+     }
+  </style>
+
+  <div id="map"></div>
+  <script>
+
+
+    function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: {lat: -25.363882, lng: 131.044922 }
+  });
+
+  map.addListener('click', function(e) {
+    placeMarkerAndPanTo(e.latLng, map);
+  });
+}
+
+function placeMarkerAndPanTo(latLng, map) {
+  var marker = new google.maps.Marker({
+    position: latLng,
+    map: map
+  });
+  map.panTo(latLng);
+}
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2u0t6H8Apw-ybOkRaWcK5VmPEg7mAfPA&callback=initMap">
+  </script>
+
+  </body>
+</html>
